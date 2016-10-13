@@ -21,14 +21,14 @@ public class UnreliableServiceController {
     protected ResponseEntity processRequest(@PathVariable final int id) {
         switch (id) {
             case 0:
-                LOGGER.info("INCOMING REQUEST, id = {}, responding PAYMENT_REQUIRED(402)", id);
-                return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).build();
-            case 1:
                 LOGGER.info("INCOMING REQUEST, id = {}, responding BAD_REQUEST(400)", id);
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-            case 2:
+            case 1:
                 LOGGER.info("INCOMING REQUEST, id = {}, responding UNAUTHORIZED(401)", id);
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            case 2:
+                LOGGER.info("INCOMING REQUEST, id = {}, responding PAYMENT_REQUIRED(402)", id);
+                return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).build();
             case 3:
                 LOGGER.info("INCOMING REQUEST, id = {}, responding FORBIDDEN(403)", id);
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
