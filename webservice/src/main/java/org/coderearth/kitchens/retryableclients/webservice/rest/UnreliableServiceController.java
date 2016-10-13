@@ -20,6 +20,9 @@ public class UnreliableServiceController {
     @RequestMapping(value = "/rest/unreliable/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     protected ResponseEntity processRequest(@PathVariable final int id) {
         switch (id) {
+            case 0:
+                LOGGER.info("INCOMING REQUEST, id = {}, responding PAYMENT_REQUIRED(402)", id);
+                return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).build();
             case 1:
                 LOGGER.info("INCOMING REQUEST, id = {}, responding BAD_REQUEST(400)", id);
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

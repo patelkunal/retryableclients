@@ -2,7 +2,11 @@ dependencies {
     compile("org.springframework:spring-core:4.3.3.RELEASE")
     compile("org.springframework:spring-context:4.3.3.RELEASE")
     compile("org.springframework:spring-beans:4.3.3.RELEASE")
+    compile("org.springframework:spring-web:4.3.3.RELEASE")
     compile("org.springframework.retry:spring-retry:1.1.4.RELEASE")
+    compile("com.fasterxml.jackson.core:jackson-core:2.8.3")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.8.3")
+    compile("com.fasterxml.jackson.core:jackson-annotations:2.8.3")
     compile('ch.qos.logback:logback-classic:1.1.7')
     compile('org.slf4j:jcl-over-slf4j:1.7.21')
 }

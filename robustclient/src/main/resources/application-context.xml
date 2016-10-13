@@ -9,6 +9,7 @@
 
     <bean id="robustClient" class="org.coderearth.kitchens.retryableclients.client.RobustClient">
         <constructor-arg name="retryTemplate" ref="retryTemplate"/>
+        <constructor-arg name="restTemplate" ref="restTemplate"/>
     </bean>
 
     <bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
@@ -23,10 +24,20 @@
                 <constructor-arg name="maxAttempts" value="10"/>
                 <constructor-arg name="retryableExceptions">
                     <map>
-                        <entry key="java.lang.IllegalArgumentException" value="true"/>
+                        <entry key="org.springframework.web.client.HttpClientErrorException" value="true"/>
+                        <entry key="org.springframework.web.client.HttpServerErrorException" value="true"/>
+                        <entry key="org.springframework.web.client.ResourceAccessException" value="true"/>
                     </map>
                 </constructor-arg>
             </bean>
+        </property>
+    </bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
         </property>
     </bean>
 

@@ -11,9 +11,8 @@
         </layout>
     </appender>
 
-    <logger name="org.coderearth.kitchens.retryableclients" level="trace">
-        <appender-ref ref="STDOUT"/>
-    </logger>
+    <logger name="org.coderearth.kitchens.retryableclients" level="trace"/>
+    <logger name="org.springframework" level="warn"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
