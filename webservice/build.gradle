@@ -1,0 +1,8 @@
+group 'org.coderearth.kithens.retryableclients'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+}
